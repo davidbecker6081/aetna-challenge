@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getAllMovies } from './state/actions'
+import { getAllMovies } from '../state/actions';
+import MovieCard from '../MovieCard/MovieCard';
+import './Home.scss';
 
 class Home extends Component {
   componentDidMount() {
     this.props.getAllMovies()
   }
 
+  displayMovieCards() {
+    return this.props.movies.map(movie => (
+      <MovieCard key={movie.id} title={movie.title} poster={movie.poster} />
+    ))
+  }
+
   render() {
     return (
-      <div>
-        {this.props.movies.map(movie => (
-          <div>
-            {movie.title}
-          </div>
-        ))}
-      </div>
+      <ul className="movie-list">
+        {this.displayMovieCards()}
+      </ul>
     )
   }
 }

@@ -1,0 +1,19 @@
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 350px;
+  width: 200px;
+
+  .movie-card--poster {
+    height: 80%;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .movie-card--title {
+    font-size: 14px;
+    margin: 0;
+    text-align: center;
+  }
+}
