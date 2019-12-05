@@ -13,9 +13,9 @@ class Image extends Component {
   }
 
   render() {
-    const { src, fallbackSrc, title } = this.props
+    const { src, fallbackSrc, title, alt, className } = this.props
     const { failed } = this.state
-    return <img src={failed ? fallbackSrc : src} onError={() => this.setError()} alt={`Movie poster for ${title}`} className="movie-card--poster"/>
+    return <img className={className} src={failed ? fallbackSrc : src} onError={() => this.setError()} alt={alt}/>
   }
 }
 
