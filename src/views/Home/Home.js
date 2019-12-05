@@ -10,9 +10,9 @@ class Home extends Component {
   }
 
   displayMovieCards() {
-    return this.props.movies.map(movie => (
+    return this.props.movies.map(movie =>
       <MovieCard key={movie.id} title={movie.title} poster={movie.poster} />
-    ))
+    )
   }
 
   render() {
