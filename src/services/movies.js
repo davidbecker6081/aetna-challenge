@@ -8,7 +8,6 @@ const MoviesService = {
 
   getMovieDetails: (imdbId) => fetch(CONSTANTS.routes.movieDetails(imdbId))
       .then(response => response.json())
-      .then(data => data)
 }
 
 export default MoviesService;

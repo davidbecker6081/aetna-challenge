@@ -13,7 +13,6 @@ export const getAllMovies = () => dispatch => {
 }
 
 export const getMovieDetails = imdbId => dispatch => {
-  console.log(imdbId)
   MoviesService.getMovieDetails(imdbId).then(details => {
     dispatch({
       type: 'MOVIE_DETAILS_LOADED',
