@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getAllMovies } from '../state/actions';
 import MovieCard from '../../components/MovieCard/MovieCard';
@@ -31,5 +32,15 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getAllMovies: () => dispatch(getAllMovies())
 })
+
+Home.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    imdbId: PropTypes.string.isRequired,
+    poster: PropTypes.string.isRequired,
+    releaseDate: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
+  })).isRequired
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
