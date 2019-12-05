@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getAllMovies } from '../state/actions';
+import { getAllMovies, storeSelectedMovie } from '../state/actions';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import './Home.scss';
 
@@ -12,7 +12,14 @@ class Home extends Component {
 
   displayMovieCards() {
     return this.props.movies.map(movie =>
-      <MovieCard key={movie.id} title={movie.title} poster={movie.poster} />
+      <MovieCard
+        key={movie.id}
+        id={movie.id}
+        imdbId={movie.imdbId}
+        title={movie.title}
+        poster={movie.poster}
+        storeSelectedMovie={this.props.storeSelectedMovie.bind(this, movie)}
+      />
     )
   }
 
@@ -30,7 +37,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  getAllMovies: () => dispatch(getAllMovies())
+  getAllMovies: () => dispatch(getAllMovies()),
+  storeSelectedMovie: (movie) => dispatch(storeSelectedMovie(movie))
 })
 
 Home.propTypes = {

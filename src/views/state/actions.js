@@ -11,3 +11,8 @@ export const getAllMovies = () => dispatch => {
         })
       })
 }
+
+export const storeSelectedMovie = movie => ({
+  type: 'STORE_SELECTED_MOVIE',
+  payload: movie
+})
