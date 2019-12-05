@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getAllMovies, storeSelectedMovie } from '../state/actions';
+import { getAllMovies, getMovieDetails } from '../state/actions';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import './Home.scss';
 
@@ -18,7 +18,7 @@ class Home extends Component {
         imdbId={movie.imdbId}
         title={movie.title}
         poster={movie.poster}
-        storeSelectedMovie={this.props.storeSelectedMovie.bind(this, movie)}
+        getMovieDetails={this.props.getMovieDetails.bind(this, movie.imdbId)}
       />
     )
   }
@@ -38,7 +38,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getAllMovies: () => dispatch(getAllMovies()),
-  storeSelectedMovie: (movie) => dispatch(storeSelectedMovie(movie))
+  getMovieDetails: (imdbId) => dispatch(getMovieDetails(imdbId))
 })
 
 Home.propTypes = {

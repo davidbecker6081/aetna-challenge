@@ -12,7 +12,12 @@ export const getAllMovies = () => dispatch => {
       })
 }
 
-export const storeSelectedMovie = movie => ({
-  type: 'STORE_SELECTED_MOVIE',
-  payload: movie
-})
+export const getMovieDetails = imdbId => dispatch => {
+  console.log(imdbId)
+  MoviesService.getMovieDetails(imdbId).then(details => {
+    dispatch({
+      type: 'MOVIE_DETAILS_LOADED',
+      payload: details
+    })
+  })
+}

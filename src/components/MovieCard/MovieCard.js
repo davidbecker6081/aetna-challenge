@@ -5,8 +5,8 @@ import Image from '../Image/Image';
 import { CONSTANTS } from '../../constants/constants';
 import './MovieCard.scss';
 
-const MovieCard = ({ title, poster, id, imdbId, storeSelectedMovie }) => (
-  <Link to={`/${id}`} alt={`Link to Movie Details for ${title}}`} onClick={() => storeSelectedMovie()}>
+const MovieCard = ({ title, poster, id, imdbId, getMovieDetails }) => (
+  <Link to={`/${id}`} alt={`Link to Movie Details for ${title}}`} onClick={() => getMovieDetails()}>
     <li className="movie-card">
       <Image src={poster} fallbackSrc={CONSTANTS.fallbackImgUrl} alt={`Movie poster for ${title}`} title={title} className="movie-card--poster"/>
       <h3 className="movie-card--title">{title}</h3>
@@ -15,10 +15,10 @@ const MovieCard = ({ title, poster, id, imdbId, storeSelectedMovie }) => (
 )
 
 MovieCard.propTypes = {
+  getMovieDetails: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   imdbId: PropTypes.string.isRequired,
   poster: PropTypes.string.isRequired,
-  storeSelectedMovie: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired
 }
 
