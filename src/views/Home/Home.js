@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAllMovies } from '../state/actions';
-import MovieCard from '../MovieCard/MovieCard';
+import MovieCard from '../../components/MovieCard/MovieCard';
 import './Home.scss';
 
 class Home extends Component {
