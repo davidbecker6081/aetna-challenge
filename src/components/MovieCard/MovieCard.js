@@ -6,7 +6,7 @@ import { CONSTANTS } from '../../constants/constants';
 import './MovieCard.scss';
 
 const MovieCard = ({ title, poster, id, imdbId, getMovieDetails }) => (
-  <Link to={`/${id}`} alt={`Link to Movie Details for ${title}}`} onClick={() => getMovieDetails()}>
+  <Link to={`/${id}`} alt={`Link to Movie Details for ${title}}`} onClick={() => getMovieDetails()} className="movie-card-link">
     <li className="movie-card">
       <Image src={poster} fallbackSrc={CONSTANTS.fallbackImgUrl} alt={`Movie poster for ${title}`} title={title} className="movie-card--poster"/>
       <h3 className="movie-card--title">{title}</h3>
