@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Image from '../../components/Image/Image';
 import MovieDetailsTable from '../../components/MovieDetailsTable/MovieDetailsTable';
+import Ratings from '../../components/Ratings/Ratings';
 import { CONSTANTS } from '../../constants/constants';
 import './MovieDetails.scss';
 
@@ -25,7 +26,9 @@ class MovieDetails extends Component {
         <article className='movie-details--info'>
           <div className='movie-details--info_title-rating'>
             <h2 className='movie-details--title'>{Title}</h2>
-            <p className='movie-details--rating'>{`${imdbRating}/10`}</p>
+            <p className='movie-details--rating'>
+              <Ratings rating={imdbRating} />
+            </p>
           </div>
           <p className='movie-details--description'>{Plot}</p>
           <MovieDetailsTable

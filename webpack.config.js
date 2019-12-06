@@ -27,7 +27,12 @@ const config = {
       }, {
         loader: "sass-loader",
       }],
-    }],
+    }, {
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: 'url-loader',
+        },
+      }],
   },
   resolve: {
     extensions: ['.js', '.jsx'],
