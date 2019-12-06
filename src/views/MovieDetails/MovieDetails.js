@@ -26,9 +26,9 @@ class MovieDetails extends Component {
         <article className='movie-details--info'>
           <div className='movie-details--info_title-rating'>
             <h2 className='movie-details--title'>{Title}</h2>
-            <p className='movie-details--rating'>
+            <article className='movie-details--rating'>
               <Ratings rating={imdbRating} />
-            </p>
+            </article>
           </div>
           <p className='movie-details--description'>{Plot}</p>
           <MovieDetailsTable

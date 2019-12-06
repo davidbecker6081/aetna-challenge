@@ -13,8 +13,6 @@ const Ratings = ({ rating }) => {
     0: emptyStar
   }
 
-  console.log(ratingsArray)
-
   return (
     <section className='ratings'>
       {ratingsArray.map((r, i) => <img key={i} className='rating-star' src={ratingMap[r]}/>)}
