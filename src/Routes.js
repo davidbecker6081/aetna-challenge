@@ -9,8 +9,9 @@ import MovieDetails from './views/MovieDetails/MovieDetails';
 const Routes = routeProps => (
   <App location={routeProps.location}>
     <Switch>
-      <Route exact path="/" component={Home} />
+      <Route exact path='/' component={Home} />
       <Route exact path="/:id" component={MovieDetails} />
+      <Route exact path="/?q=:searchQuery" component={Home} />>
     </Switch>
   </App>
 )

@@ -20,3 +20,14 @@ export const getMovieDetails = imdbId => dispatch => {
     })
   })
 }
+
+export const searchMovies = searchQuery => dispatch => {
+  MoviesService.searchMovies(searchQuery).then(results => {
+    dispatch({
+      type: 'SEARCH_RESULTS_LOADED',
+      payload: {
+        searchResults: results
+      }
+    })
+  })
+}

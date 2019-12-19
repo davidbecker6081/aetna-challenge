@@ -10,8 +10,10 @@ class Home extends Component {
     this.props.getAllMovies()
   }
 
-  displayMovieCards() {
-    return this.props.movies.map(movie =>
+  // static getDerived
+
+  displayMovieCards(displayOption) {
+    return this.props[displayOption].map(movie =>
       <MovieCard
         key={movie.id}
         id={movie.id}
@@ -24,16 +26,23 @@ class Home extends Component {
   }
 
   render() {
-    return (
+    if (this.props.movies.length === 0) {
+      return <div style={{fontSize: '100px'}}>Loading....</div>
+    }
+    return this.props.searchResults ?
       <ul className="movie-list">
-        {this.displayMovieCards()}
+        {this.displayMovieCards('searchResults')}
       </ul>
-    )
+      :
+      <ul className="movie-list">
+        {this.displayMovieCards('movies')}
+      </ul>
   }
 }
 
 const mapStateToProps = state => ({
   movies: state.main.movies,
+  searchResults: state.main.searchResults
 })
 
 const mapDispatchToProps = dispatch => ({
